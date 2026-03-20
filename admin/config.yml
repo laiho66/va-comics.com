@@ -7,12 +7,43 @@ media_folder: "assets"
 public_folder: "/assets"
 
 collections:
+  # 1. COLECȚIA DE CRONICI (Actualizată cu relația)
   - name: "chronicles"
     label: "Chronicles"
-    folder: "content/chronicles" # Aici se vor salva fișierele
+    folder: "content/chronicles"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
+      
+      # AICI ESTE RELATION WIDGET
+      - label: "Linked Volume"
+        name: "linked_volume"
+        widget: "relation"
+        collection: "volumes"      # Se uită în colecția de mai jos
+        search_fields: ["title"]   # Caută după titlu în listă
+        value_field: "url"         # Ce salvăm în fișier (link-ul paginii)
+        display_fields: ["title"]  # Ce vezi tu în meniul dropdown
+        required: false
+
       - {label: "Log Content", name: "body", widget: "markdown"}
+
+  # 2. COLECȚIA DE VOLUME (Sursa pentru relație)
+  - name: "volumes"
+    label: "Volumes Library"
+    editor:
+      preview: false
+    files:
+      - label: "Dead Drop: Volume 1"
+        name: "vol1"
+        file: "content/volumes/vol1.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string", default: "Volume 1"}
+          - {label: "URL", name: "url", widget: "string", default: "deaddrop/vol1.html"}
+      - label: "Dead Drop: Volume 2"
+        name: "vol2"
+        file: "content/volumes/vol2.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string", default: "Volume 2"}
+          - {label: "URL", name: "url", widget: "string", default: "deaddrop/vol2.html"}
