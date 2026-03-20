@@ -3,7 +3,8 @@ backend:
   repo: laiho66/va-comics.com
   branch: main
   base_url: https://va-auth.besleaga-valentin.workers.dev
-  client_id: 295a31ab33640599fb2e54d4b98beef90d2dbd5b
+  client_id: Ov23liRXBQxQAnqWzvXx # ID-ul tău confirmat
+
 publish_mode: editorial_workflow
 
 media_folder: "assets"
@@ -20,6 +21,13 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       
+      # --- NOU: CLASIFICARE PRIN CATEGORII ---
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Recenzii", "News", "Interviuri", "Teorii", "Cronici"]
+        default: "Cronici"
+
       - label: "Linked Volume"
         name: "linked_volume"
         widget: "relation"
