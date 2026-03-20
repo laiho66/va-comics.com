@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="title" content="VA COMICS | The Architecture of Darkness">
+<meta name="description" content="Explore unconventional stories and noir-industrial universes. Step into the Dead Drop.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://va-comics.com/">
+<meta property="og:title" content="VA COMICS | The Architecture of Darkness">
+<meta property="og:description" content="Creative freedom and digital potential merged into one universe.">
+<meta property="og:image" content="https://va-comics.com/bg-home.webp">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://va-comics.com/">
+<meta property="twitter:title" content="VA COMICS | The Architecture of Darkness">
+<meta property="twitter:description" content="Dive into the Chronicles of VA COMICS.">
+<meta property="twitter:image" content="https://va-comics.com/bg-home.webp">
+    <title>VA COMICS | Contact Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Fundalul fix */
+        .contact-bg { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: url('bg-home.webp') center/cover; filter: brightness(0.2); z-index: 1; 
+        }
+        
+        /* Poziționare și Z-Index pentru conținut */
+        .contact-content { 
+            position: relative; 
+            z-index: 10; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 150px 20px 50px 20px; 
+            text-align: center; 
+        }
+
+        /* Stil pentru Grid-ul de butoane (Hub) */
+        .hub-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px; 
+            margin-top: 50px; 
+        }
+
+        .hub-card { 
+            background: rgba(0, 0, 0, 0.8); 
+            border: 1px solid rgba(255, 69, 0, 0.2); 
+            padding: 40px 20px; 
+            text-decoration: none; 
+            transition: 0.3s; 
+            border-left: 4px solid var(--magma-orange);
+        }
+
+        .hub-card:hover { 
+            border-color: var(--magma-orange); 
+            transform: translateY(-5px); 
+            background: rgba(255, 69, 0, 0.05); 
+        }
+
+        .hub-card h2 { font-family: 'Teko'; color: var(--magma-orange); font-size: 2rem; margin: 0 0 10px 0; letter-spacing: 3px; }
+        .hub-card p { font-family: 'Rajdhani'; color: #ccc; margin: 0; font-size: 1.1rem; }
+
+        @media (max-width: 768px) { .hub-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="contact-bg"></div>
+    
+   <header>
+    <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        
+        <li class="nav-item">
+            <a href="deaddrop/index.html" class="nav-link">Dead Drop</a>
+            <div class="dropdown">
+                <a href="deaddrop/vol1.html" class="dropdown-link">Volume 1</a>
+                <a href="deaddrop/vol2.html" class="dropdown-link">Volume 2</a>
+            </div>
+        </li>
+
+        <li class="nav-item"><a href="chronicles.html" class="nav-link">Chronicles</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About us</a></li>
+
+        <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+            <div class="dropdown">
+                <a href="sendreport.html" class="dropdown-link">Send Report</a>
+                <a href="fieldlogs.html" class="dropdown-link">Field Logs</a>
+            </div>
+        </li>
+
+        <li class="nav-item"><a href="teaser.html" class="nav-link">Teaser</a></li>
+    </ul>
+</header>
+
+    <main class="contact-content">
+        <h1 style="font-family: 'Teko'; font-size: 5rem; letter-spacing: 10px; color: var(--magma-orange); text-transform: uppercase;">
+            COMMUNICATION <span>CENTER</span>
+        </h1>
+        
+        <div class="hub-grid">
+            <a href="sendreport.html" class="hub-card">
+                <h2>SEND REPORT</h2>
+                <p>Transmit field observations or secure messages directly to the studio.</p>
+            </a>
+            <a href="fieldlogs.html" class="hub-card">
+                <h2>FIELD LOGS</h2>
+                <p>Access the archive of intercepted transmissions and feedback.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer style="position: relative; z-index: 999; text-align: center; ...">
+        <div style="max-width: 1200px; margin: 0 auto; opacity: 0.6;">
+            <p style="letter-spacing: 4px; margin: 0; font-size: 1.4rem; color: #fff; text-transform: uppercase;">
+                &copy; 2026 VA COMICS STUDIO&trade; // ALL RIGHTS RESERVED
+            </p>
+            <p style="font-size: 0.9rem; margin-top: 15px; color: #ccc; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto; letter-spacing: 1px;">
+                All narrative elements, characters, and original artwork are protected under international copyright laws. Unauthorized reproduction, distribution, or use of any content is strictly prohibited.
+            </p>
+            <p style="font-size: 1rem; margin-top: 20px; color: #fff; opacity: 0.8; text-transform: uppercase; letter-spacing: 2px;">
+                Official Publications Available Exclusively on Amazon
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
