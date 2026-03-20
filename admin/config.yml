@@ -2,7 +2,7 @@ backend:
   name: github
   repo: laiho66/va-comics.com
   branch: main
-  base_url: https://github-os-proxy.vercel.app # Proxy-ul care ne lasă să intrăm
+  base_url: https://va-auth.besleaga-valentin.workers.dev # Proxy-ul care ne lasă să intrăm
   client_id: 295a31ab33640599fb2e54d4b98beef90d2dbd5b
 publish_mode: editorial_workflow
 
