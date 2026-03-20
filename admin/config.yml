@@ -1,14 +1,16 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: laiho66/va-comics.com
   branch: main
-  
+  base_url: https://github-os-proxy.vercel.app # Proxy-ul care ne lasă să intrăm
+
 publish_mode: editorial_workflow
 
 media_folder: "assets"
 public_folder: "/assets"
 
 collections:
-  # 1. COLECȚIA DE CRONICI (Actualizată cu relația)
+  # 1. COLECȚIA DE CRONICI
   - name: "chronicles"
     label: "Chronicles"
     folder: "content/chronicles"
@@ -18,19 +20,18 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       
-      # AICI ESTE RELATION WIDGET
       - label: "Linked Volume"
         name: "linked_volume"
         widget: "relation"
-        collection: "volumes"      # Se uită în colecția de mai jos
-        search_fields: ["title"]   # Caută după titlu în listă
-        value_field: "url"         # Ce salvăm în fișier (link-ul paginii)
-        display_fields: ["title"]  # Ce vezi tu în meniul dropdown
+        collection: "volumes"
+        search_fields: ["title"]
+        value_field: "url"
+        display_fields: ["title"]
         required: false
 
       - {label: "Log Content", name: "body", widget: "markdown"}
 
-  # 2. COLECȚIA DE VOLUME (Sursa pentru relație)
+  # 2. COLECȚIA DE VOLUME
   - name: "volumes"
     label: "Volumes Library"
     editor:
