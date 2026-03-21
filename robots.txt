@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /va-auth/
+Disallow: /config.yml
+
+Sitemap: https://va-comics.com/sitemap.xml
