@@ -26,7 +26,7 @@ collections:
       - label: "Category"
         name: "category"
         widget: "select"
-        options: ["Recenzii", "News", "Interviuri", "Teorii", "Cronici"]
+        options: ["Reviews", "News", "Interviews", "Theories", "Chronicles"]
         default: "Cronici"
 
       - label: "Linked Volume"
