@@ -3,7 +3,7 @@ backend:
   repo: laiho66/va-comics.com
   branch: main
   base_url: https://va-auth.besleaga-valentin.workers.dev
-  client_id: Ov23liRXBQxQAnqWzvXx # ID-ul tău confirmat
+  client_id: Ov23liRXBQxQAnqWzvXx
 
 publish_mode: editorial_workflow
 
@@ -16,19 +16,18 @@ collections:
     label: "Chronicles"
     folder: "content/chronicles"
     create: true
-    delete: true # Permite ștergerea/unpublish la cronici
+    delete: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Log Content", name: "body", widget: "markdown", buttons: ["bold", "italic", "link", "heading-two", "quote", "bulleted-list", "numbered-list"], editor_components: []}
       
-      # --- CLASIFICARE PRIN CATEGORII ---
+      # --- CLASIFICARE PRIN CATEGORII (EN) ---
       - label: "Category"
         name: "category"
         widget: "select"
-        options: ["Reviews", "News", "Interviews", "Theories", "Chronicles"]
-        default: "Cronici"
+        options: ["News", "Reviews", "Interviews", "Theories", "Chronicles"]
+        default: "Chronicles"
 
       - label: "Linked Volume"
         name: "linked_volume"
@@ -39,13 +38,17 @@ collections:
         display_fields: ["title"]
         required: false
 
-      - {label: "Log Content", name: "body", widget: "markdown"}
-      - {label: "Log Content", name: "body", widget: "markdown", minimal: true}
+      # --- LOG CONTENT (FĂRĂ SLASH-URI) ---
+      - label: "Log Content"
+        name: "body"
+        widget: "markdown"
+        minimal: true
+        show_config_editor: false
 
   # 2. COLECȚIA DE VOLUME
   - name: "volumes"
     label: "Volumes Library"
-    delete: true # Permite ștergerea/unpublish la volume
+    delete: true
     editor:
       preview: false
     files:
