@@ -16,12 +16,13 @@ collections:
     label: "Chronicles"
     folder: "content/chronicles"
     create: true
+    delete: true # Permite ștergerea/unpublish la cronici
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       
-      # --- NOU: CLASIFICARE PRIN CATEGORII ---
+      # --- CLASIFICARE PRIN CATEGORII ---
       - label: "Category"
         name: "category"
         widget: "select"
@@ -42,6 +43,7 @@ collections:
   # 2. COLECȚIA DE VOLUME
   - name: "volumes"
     label: "Volumes Library"
+    delete: true # Permite ștergerea/unpublish la volume
     editor:
       preview: false
     files:
