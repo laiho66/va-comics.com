@@ -64,6 +64,8 @@
             font-family: 'Teko';
             letter-spacing: 2px;
             margin-top: 15px;
+            text-transform: uppercase;
+            outline: none;
         }
 
         @media (max-width: 1024px) { 
@@ -101,11 +103,10 @@
     <main class="chron-content">
         <h1 class="chron-title">THE <span>CHRONICLES</span></h1>
 
-
         <div id="dynamic-logs"></div>
     </main>
 
-   <footer style="position: relative; z-index: 999; text-align: center; ...">
+   <footer style="position: relative; z-index: 999; text-align: center; margin-top: 50px; padding-bottom: 30px;">
         <div style="max-width: 1200px; margin: 0 auto; opacity: 0.6;">
             <p style="letter-spacing: 4px; margin: 0; font-size: 1.4rem; color: #fff; text-transform: uppercase;">
                 &copy; 2026 VA COMICS STUDIO&trade; // ALL RIGHTS RESERVED
@@ -122,7 +123,6 @@
     <script>
       async function loadAutomatedLogs() {
         const container = document.getElementById('dynamic-logs');
-        // REPO-UL TĂU OFICIAL
         const repo = 'laiho66/va-comics.com';
         const path = 'content/chronicles';
 
@@ -143,23 +143,42 @@
               const dateRaw = rawText.match(/date: (.*)/)?.[1] || "";
               const date = dateRaw.split('T')[0] || "Recent";
               
-              // Separăm conținutul de setări (după a doua linie ---)
+              // Separăm conținutul de frontmatter (după a doua linie ---)
               const parts = rawText.split('---');
-              const content = parts.length > 2 ? parts[2].trim() : parts[0];
+              const fullContent = parts.length > 2 ? parts[2].trim() : parts[0];
 
-              // Creăm elementul vizual identic cu Origins
+              // --- LOGICĂ PENTRU DIVIZARE TEXT ---
+              const paragraphs = fullContent.split(/\r?\n\r?\n/);
+              const intro = paragraphs[0]; // Primul paragraf
+              const rest = paragraphs.slice(1).join('\n\n'); // Restul cronicii
+
               const article = document.createElement('article');
               article.className = 'log-entry';
-              article.innerHTML = `
+
+              let articleHTML = `
                 <div class="log-date">TIMESTAMP: ${date}</div>
                 <h2 style="font-family:'Teko'; color:#fff; text-transform: uppercase; margin-top: 0;">${title}</h2>
-                <div class="log-text">${content.replace(/\n/g, '<br>')}</div>
+                <div class="log-text">${intro.replace(/\n/g, '<br>')}</div>
               `;
+
+              // Dacă există restul textului, îl punem în elementul de expandare
+              if (rest.trim().length > 0) {
+                articleHTML += `
+                  <details class="chronicle-expand">
+                    <summary>READ FULL LOG</summary>
+                    <div class="log-text" style="margin-top: 20px;">
+                      ${rest.replace(/\n/g, '<br>')}
+                    </div>
+                  </details>
+                `;
+              }
+
+              article.innerHTML = articleHTML;
               container.appendChild(article);
             }
           }
         } catch (err) {
-          console.log("Încă nu sunt log-uri noi sau eroare la API.");
+          console.log("Error loading logs:", err);
         }
       }
       loadAutomatedLogs();
