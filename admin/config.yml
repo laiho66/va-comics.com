@@ -38,12 +38,14 @@ collections:
         display_fields: ["title"]
         required: false
 
-      # --- LOG CONTENT (FĂRĂ SLASH-URI) ---
+      # --- LOG CONTENT (FIXED: NO MORE SLASHES) ---
       - label: "Log Content"
         name: "body"
         widget: "markdown"
         minimal: true
         show_config_editor: false
+        # Aceasta este linia critică: oprește forțarea caracterelor de control
+        line_breaks: false
 
   # 2. COLECȚIA DE VOLUME
   - name: "volumes"
