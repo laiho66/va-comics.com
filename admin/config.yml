@@ -21,6 +21,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Log Content", name: "body", widget: "markdown", buttons: ["bold", "italic", "link", "heading-two", "quote", "bulleted-list", "numbered-list"], editor_components: []}
       
       # --- CLASIFICARE PRIN CATEGORII ---
       - label: "Category"
