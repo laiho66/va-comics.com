@@ -102,7 +102,6 @@
 
     <main class="chron-content">
         <h1 class="chron-title">THE <span>CHRONICLES</span></h1>
-
         <div id="dynamic-logs"></div>
     </main>
 
@@ -130,7 +129,6 @@
           const response = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`);
           const files = await response.json();
 
-          // Sortăm invers (cele mai noi fișiere MD primele)
           files.reverse();
 
           for (const file of files) {
@@ -138,19 +136,21 @@
               const res = await fetch(file.download_url);
               const rawText = await res.text();
 
-              // Extragem Titlul și Data din Markdown
-              const title = rawText.match(/title: "(.*)"/)?.[1] || "New Entry";
-              const dateRaw = rawText.match(/date: (.*)/)?.[1] || "";
+              // --- FIX DETECTARE TITLU (Acum acceptă și cu ghilimele și fără) ---
+              const titleMatch = rawText.match(/^title:\s*["']?(.*?)["']?$/m);
+              const title = titleMatch ? titleMatch[1] : "New Entry";
+              
+              // --- FIX DETECTARE DATĂ ---
+              const dateMatch = rawText.match(/^date:\s*(.*)$/m);
+              const dateRaw = dateMatch ? dateMatch[1] : "";
               const date = dateRaw.split('T')[0] || "Recent";
               
-              // Separăm conținutul de frontmatter (după a doua linie ---)
               const parts = rawText.split('---');
               const fullContent = parts.length > 2 ? parts[2].trim() : parts[0];
 
-              // --- LOGICĂ PENTRU DIVIZARE TEXT ---
               const paragraphs = fullContent.split(/\r?\n\r?\n/);
-              const intro = paragraphs[0]; // Primul paragraf
-              const rest = paragraphs.slice(1).join('\n\n'); // Restul cronicii
+              const intro = paragraphs[0];
+              const rest = paragraphs.slice(1).join('\n\n');
 
               const article = document.createElement('article');
               article.className = 'log-entry';
@@ -161,7 +161,6 @@
                 <div class="log-text">${intro.replace(/\n/g, '<br>')}</div>
               `;
 
-              // Dacă există restul textului, îl punem în elementul de expandare
               if (rest.trim().length > 0) {
                 articleHTML += `
                   <details class="chronicle-expand">
