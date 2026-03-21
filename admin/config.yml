@@ -39,6 +39,7 @@ collections:
         required: false
 
       - {label: "Log Content", name: "body", widget: "markdown"}
+      - {label: "Log Content", name: "body", widget: "markdown", minimal: true}
 
   # 2. COLECȚIA DE VOLUME
   - name: "volumes"
