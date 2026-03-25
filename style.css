@@ -193,4 +193,53 @@ details summary::-webkit-details-marker { display: none; }
 @media (max-width: 480px) {
     .nav-menu { gap: 10px; flex-wrap: wrap; }
     .nav-link { font-size: 1.1rem; }
+
+    /* --- VA COMICS STUDIO | PAGE TITLE REPLACEMENT --- */
+
+/* Această regulă localizează elementul care conține titlul "Home" */
+/* și aplică modificarea pe care o dorești. */
+
+/* Presupunând că ai acces la codul HTML, poți adăuga o clasă */
+/* cum ar fi "va-page-title" elementului care conține textul. */
+/* Dacă nu poți adăuga clasa, poți încerca să identifici */
+/* elementul folosind un selector mai specific. */
+
+/* Exemplu: Dacă elementul este un tag <h1>, poți folosi: h1 { ... } */
+/* Dacă elementul este un tag <h2>, poți folosi: h2 { ... } */
+/* Sau, dacă are un ID, poți folosi: #page-title { ... } */
+
+/* Pentru acest exemplu, voi folosi o clasă generică. */
+.va-page-title {
+    /* Dezactivăm fontul Teko pentru titlul original "Home" */
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 1.4rem !important;
+    color: var(--pure-white) !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* Această regulă utilizează pseudoelementul :after pentru */
+/* a înlocui textul "Home" cu textul "Dead Drop". */
+.va-page-title:after {
+    /* Adăugăm textul "Dead Drop" ca conținut al pseudoelementului */
+    content: "Dead Drop" !important;
+    
+    /* Aplicăm stilurile pe care le dorești pentru noul titlu */
+    font-family: 'Teko', sans-serif !important;
+    font-size: 2.2rem !important;
+    color: var(--pure-white) !important;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    
+    /* Poziționăm noul titlu în locul celui original */
+    display: inline-block;
+    position: relative;
+    left: -1ch; /* Ajustează această valoare pentru o poziționare perfectă */
+}
+
+/* Această regulă ascunde textul original "Home" */
+.va-page-title span {
+    display: none;
+}
 }
