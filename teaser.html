@@ -4,73 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VA COMICS | Cinematic Teaser</title>
+    <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Teko:wght@600&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --magma-orange: #ff4500; }
-        
-        body, html { 
-            margin: 0; padding: 0; background-color: #050505; 
-            min-height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-            overflow-x: hidden;
+        /* Suprascriem Master CSS doar pentru această pagină */
+        body {
+            justify-content: flex-start !important; /* Mutăm conținutul spre vârf pentru a lăsa loc de scroll dacă e cazul */
+            padding-top: 60px;
+            overflow-y: auto !important; /* Permitem scroll pe verticală dacă ecranul e mic */
         }
 
-        /* Fundalul paginii */
         .page-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: url('bg-home.webp') center/cover no-repeat;
             filter: brightness(0.12) blur(10px); z-index: -1;
         }
 
-        /* Containerul Player-ului - ACUM MULT MAI MARE */
+        /* Forțăm containerul să ignore restricțiile de flexbox */
         .video-container {
-            width: 95%; /* Ocupă aproape toată lățimea pe mobil */
-            max-width: 1400px; /* Lățime maximă generoasă pentru desktop */
-            margin: 0 auto;
+            width: 95% !important; 
+            max-width: 1200px !important;
+            margin: 40px auto 20px auto !important;
+            flex-shrink: 0; /* Împiedicăm flexbox-ul să-l strivească */
         }
 
         .video-frame {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* Raport 16:9 perfect */
+            padding-bottom: 56.25%; /* 16:9 Ratio */
             height: 0;
-            border: 1px solid rgba(255, 69, 0, 0.5);
+            border: 1px solid var(--magma-orange);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 69, 0, 0.2);
             background: #000;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 69, 0, 0.1);
         }
 
-        /* Stil Iframe YouTube */
         .video-frame iframe { 
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; 
-            height: 100%; 
-            border: none;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; border: none;
         }
 
         .teaser-footer {
-            margin-top: 30px; text-align: center;
-            width: 100%;
+            margin-top: 20px;
+            padding-bottom: 50px;
+            text-align: center;
         }
-
-        .teaser-title {
-            font-family: 'Teko', sans-serif; 
-            font-size: clamp(1.5rem, 5vw, 2.5rem); /* Dimensiune dinamică */
-            color: var(--magma-orange); 
-            text-transform: uppercase;
-            letter-spacing: clamp(4px, 2vw, 8px); 
-            margin-bottom: 15px;
-            text-shadow: 0 0 15px rgba(255, 69, 0, 0.3);
-        }
-        
-        .nav-back {
-            color: rgba(255, 255, 255, 0.5); text-decoration: none;
-            border-bottom: 1px solid transparent; padding-bottom: 2px;
-            text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem;
-            transition: 0.3s;
-        }
-        .nav-back:hover { color: #fff; border-color: var(--magma-orange); }
     </style>
 </head>
 <body>
@@ -80,7 +58,7 @@
     <div class="video-container">
         <div class="video-frame">
             <iframe 
-                src="https://www.youtube.com/embed/Sd7--V8R1ks?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1" 
+                src="https://www.youtube.com/embed/Sd7--V8R1ks?autoplay=1&mute=1&controls=1&rel=0" 
                 title="Dead Drop Cinematic Teaser" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
@@ -89,7 +67,9 @@
     </div>
 
     <div class="teaser-footer">
-        <h1 class="teaser-title">Teaser: Dead Drop</h1>
+        <h1 class="teaser-title" style="font-family: 'Teko', sans-serif; color: var(--magma-orange); font-size: 3rem; letter-spacing: 5px;">
+            DEAD DROP: TEASER
+        </h1>
         <a href="index.html" class="nav-back">← Return to Vault</a>
     </div>
 
