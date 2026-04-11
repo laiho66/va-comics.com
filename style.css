@@ -1,19 +1,8 @@
-/* --- VA COMICS STUDIO | MASTER STYLE SHEET v2.1 --- */
+/* --- VA COMICS STUDIO | MASTER STYLE SHEET v2.0 --- */
 :root { 
     --magma-orange: #FF4500; 
     --pure-white: #ffffff; 
     --bg-dark: #050505;
-}
-
-/* --- ANIMATIONS --- */
-@keyframes neon-flicker { 
-    0%, 100% { opacity: 1; box-shadow: 0 0 15px var(--magma-orange); } 
-    50% { opacity: 0.7; box-shadow: 0 0 5px var(--magma-orange); } 
-}
-
-@keyframes scan-bar {
-    0% { left: -100%; }
-    100% { left: 100%; }
 }
 
 /* --- GLOBAL RESET & LAYOUT --- */
@@ -25,18 +14,18 @@ body, html {
     color: #fff;
     overflow-x: hidden; 
     scroll-behavior: smooth;
+    
+    /* Sticky Footer Logic */
     display: flex;
     flex-direction: column;
 }
 
-/* Anti-Purple Global Fix */
-a:visited { color: inherit; }
-
+/* Extindem zona principală pentru a împinge footer-ul jos */
 main, .about-content, .hero-content, .hub-container, .container, .chron-content, .contact-content {
     flex: 1; 
 }
 
-/* --- NAVIGATION --- */
+/* --- NAVIGATION (DESKTOP) --- */
 header { 
     position: fixed; top: 50px; left: 50px; z-index: 10000; 
     background: transparent; transition: 0.3s;
@@ -58,28 +47,195 @@ header {
 
 .nav-item:hover .nav-link { opacity: 1; color: var(--magma-orange); padding-left: 10px; }
 
-/* --- BUTTONS & CTA (The "Box" Style) --- */
-.cta-button, .nav-back-btn { 
-    display: inline-block; 
-    padding: 12px 35px; 
+/* Dropdown Logic */
+.dropdown {
+    position: absolute; left: 100%; top: 5px; margin-left: 20px;
+    background: rgba(10, 10, 10, 0.98); border-left: 3px solid var(--magma-orange);
+    min-width: 160px; display: none; flex-direction: column; padding: 0; z-index: 10001;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+}
+
+.dropdown::before { content: ''; position: absolute; left: -20px; top: 0; width: 20px; height: 100%; }
+.nav-item:hover .dropdown { display: flex; }
+
+.dropdown-link {
+    color: #fff; padding: 12px 20px; text-decoration: none;
+    font-family: 'Teko', sans-serif; font-size: 1.4rem; text-transform: uppercase; 
+    transition: 0.2s; display: block; line-height: 1;
+}
+
+.dropdown-link:hover { background: rgba(255, 69, 0, 0.2); color: var(--magma-orange); }
+
+/* --- CHRONICLES SECTION --- */
+.chron-content {
+    max-width: 900px;
+    margin: 150px auto 50px;
+    padding: 0 40px;
+}
+
+.log-entry { 
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 69, 0, 0.1);
+    border-left: 4px solid var(--magma-orange);
+    padding: 35px;
+    margin-bottom: 50px;
+}
+
+.log-date {
+    font-family: 'Teko', sans-serif;
+    color: var(--magma-orange);
+    font-size: 1rem; /* Mărime adaptată pentru aspect pro */
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.log-entry h2 {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.8rem; /* Titlu log compact */
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.log-text { 
+    font-family: 'Rajdhani', sans-serif; 
+    color: rgba(255, 255, 255, 0.85); 
+    font-size: 1.05rem; /* Dimensiune text redusă pentru lizibilitate */
+    line-height: 1.6; 
+    margin-bottom: 20px;
+}
+
+/* Stil pentru răspunsul AI (Alexi) */
+.alexi-response {
+    border-left: 2px solid var(--magma-orange);
+    padding: 15px 25px;
+    margin-top: 30px;
+    background: rgba(255, 69, 0, 0.05);
+}
+
+.alexi-tag {
+    color: var(--magma-orange);
+    font-family: 'Teko', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* --- BUTTONS & CTA --- */
+.cta-button { 
+    display: inline-block;
+    padding: 15px 35px; 
     background: transparent; 
-    border: 2px solid var(--magma-orange) !important; 
-    color: var(--magma-orange) !important; 
+    border: 2px solid var(--magma-orange); 
+    color: var(--magma-orange); 
     font-family: 'Teko', sans-serif; 
-    font-size: 1.6rem; 
+    font-size: 1.8rem; 
     letter-spacing: 5px; 
     text-transform: uppercase; 
     cursor: pointer; 
     transition: 0.3s;
-    text-decoration: none !important; 
+    text-decoration: none;
     text-align: center;
 }
 
-.cta-button:hover, .nav-back-btn:hover { 
-    background: var(--magma-orange) !important; 
-    color: #000 !important; 
-    transform: scale(1.05); 
-    box-shadow: 0 0 20px var(--magma-orange);
+.cta-button:hover {
+    background: var(--magma-orange);
+    color: #000;
+    transform: scale(1.05);
 }
 
-/* Restul stilurilor tale (Chronicles, Form, etc.) rămân neschimbate sub această linie */
+/* --- CONTACT FORM --- */
+.form-container { max-width: 600px; margin: 50px auto; padding: 0 20px; }
+
+.va-form {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 40px;
+    border: 1px solid rgba(255, 69, 0, 0.1);
+    border-left: 4px solid var(--magma-orange);
+}
+
+.form-group { margin-bottom: 25px; }
+.form-group label {
+    display: block; font-family: 'Teko', sans-serif;
+    color: var(--magma-orange); letter-spacing: 2px;
+    font-size: 1.2rem; margin-bottom: 8px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #333; color: #fff; font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem; transition: 0.3s; box-sizing: border-box;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--magma-orange); outline: none; background: rgba(255, 69, 0, 0.05);
+}
+
+/* --- FOOTER UNIFORM --- */
+.master-footer { 
+    text-align: center; padding: 80px 20px; font-family: 'Teko', sans-serif; 
+    border-top: 1px solid rgba(255, 69, 0, 0.1); background: rgba(0,0,0,0.8);
+    position: relative; z-index: 10; 
+    margin-top: auto; 
+}
+
+.footer-copy { letter-spacing: 4px; margin: 0; font-size: 1.4rem; color: #fff; text-transform: uppercase; }
+.footer-disclaimer { 
+    font-size: 0.9rem; margin-top: 15px; color: #ccc; line-height: 1.6; 
+    max-width: 700px; margin: 15px auto 0; opacity: 0.6;
+}
+
+/* --- RESPONSIVE MASTER --- */
+@media (max-width: 1024px) {
+    header { 
+        position: relative; top: 0; left: 0; width: 100%; 
+        padding: 30px 0; background: rgba(0,0,0,0.9); text-align: center;
+    }
+    .nav-menu { flex-direction: row; justify-content: center; gap: 20px; }
+    .nav-link { font-size: 1.4rem; letter-spacing: 2px; }
+    .dropdown { 
+        left: 50%; transform: translateX(-50%); top: 100%; 
+        margin-left: 0; border-left: none; border-top: 3px solid var(--magma-orange); 
+    }
+    .chron-content { margin-top: 50px; padding: 0 20px; }
+}
+
+@media (max-width: 480px) {
+    .nav-menu { gap: 10px; flex-wrap: wrap; }
+    .nav-link { font-size: 1.1rem; }
+	/* --- READ MORE / EXPAND LOGIC --- */
+details.chronicle-expand {
+    cursor: pointer;
+}
+
+details.chronicle-expand summary {
+    list-style: none; /* Ascunde săgeata nativă */
+    display: inline-block;
+    color: var(--magma-orange);
+    font-family: 'Teko', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--magma-orange);
+    padding: 5px 15px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+details.chronicle-expand summary:hover {
+    background: var(--magma-orange);
+    color: #000;
+}
+
+/* Schimbă textul când este deschis (opțional) */
+details[open] summary {
+    margin-bottom: 20px;
+    background: rgba(255, 69, 0, 0.1);
+}
+
+/* Elimină săgeata în Safari */
+details summary::-webkit-details-marker {
+    display: none;
+}
+}
