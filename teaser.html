@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VA COMICS | Teaser</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Teko:wght@600&display=swap" rel="stylesheet">
     <style>
-        body { justify-content: flex-start !important; padding-top: 40px; }
-        .page-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('bg-home.webp') center/cover no-repeat;
-            filter: brightness(0.1) blur(10px); z-index: -1;
-        }
-        .video-container { width: 95%; max-width: 1200px; margin: 20px auto; flex-shrink: 0; }
-        .video-frame { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border: 1px solid var(--magma-orange); }
+        /* Nu atingem meniul, doar layout-ul video */
+        body { justify-content: flex-start !important; padding-top: 100px; }
+        .page-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('bg-home.webp') center/cover no-repeat; filter: brightness(0.1) blur(10px); z-index: -1; }
+        .video-container { width: 90%; max-width: 1200px; margin: 0 auto; flex-shrink: 0; }
+        .video-frame { position: relative; padding-bottom: 56.25%; height: 0; border: 1px solid var(--magma-orange); background: #000; }
         .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .teaser-footer { margin-top: 30px; text-align: center; padding-bottom: 50px; }
-        .teaser-title { font-family: 'Teko', sans-serif; color: var(--magma-orange); font-size: 2.5rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -28,7 +23,6 @@
         </div>
     </div>
     <div class="teaser-footer">
-        <h1 class="teaser-title">Teaser: Dead Drop</h1>
         <a href="index.html" class="nav-back-btn">Return to Vault</a>
     </div>
 </body>
