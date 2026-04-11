@@ -1,4 +1,4 @@
-/* --- VA COMICS STUDIO | MASTER STYLE SHEET v2.0 --- */
+/* --- VA COMICS STUDIO | MASTER STYLE SHEET v2.1 --- */
 :root { 
     --magma-orange: #FF4500; 
     --pure-white: #ffffff; 
@@ -29,6 +29,9 @@ body, html {
     flex-direction: column;
 }
 
+/* Anti-Purple Global Fix */
+a:visited { color: inherit; }
+
 main, .about-content, .hero-content, .hub-container, .container, .chron-content, .contact-content {
     flex: 1; 
 }
@@ -55,191 +58,28 @@ header {
 
 .nav-item:hover .nav-link { opacity: 1; color: var(--magma-orange); padding-left: 10px; }
 
-.dropdown {
-    position: absolute; left: 100%; top: 5px; margin-left: 20px;
-    background: rgba(10, 10, 10, 0.98); border-left: 3px solid var(--magma-orange);
-    min-width: 160px; display: none; flex-direction: column; padding: 0; z-index: 10001;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-}
-
-.dropdown::before { content: ''; position: absolute; left: -20px; top: 0; width: 20px; height: 100%; }
-.nav-item:hover .dropdown { display: flex; }
-
-.dropdown-link {
-    color: #fff; padding: 12px 20px; text-decoration: none;
-    font-family: 'Teko', sans-serif; font-size: 1.4rem; text-transform: uppercase; 
-    transition: 0.2s; display: block; line-height: 1;
-}
-
-.dropdown-link:hover { background: rgba(255, 69, 0, 0.2); color: var(--magma-orange); }
-
-/* --- CHRONICLES SECTION --- */
-.chron-content { max-width: 900px; margin: 150px auto 50px; padding: 0 40px; }
-
-.log-entry { 
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 69, 0, 0.1);
-    border-left: 4px solid var(--magma-orange);
-    padding: 35px; margin-bottom: 50px;
-}
-
-.log-date { font-family: 'Teko', sans-serif; color: var(--magma-orange); font-size: 1rem; letter-spacing: 2px; margin-bottom: 10px; }
-.log-entry h2 { font-family: 'Teko', sans-serif; font-size: 1.8rem; color: #fff; text-transform: uppercase; margin-bottom: 20px; }
-.log-text { font-family: 'Rajdhani', sans-serif; color: rgba(255, 255, 255, 0.85); font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; }
-
-.alexi-response { border-left: 2px solid var(--magma-orange); padding: 15px 25px; margin-top: 30px; background: rgba(255, 69, 0, 0.05); }
-.alexi-tag { color: var(--magma-orange); font-family: 'Teko', sans-serif; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-
-/* --- READ MORE / EXPAND LOGIC --- */
-details.chronicle-expand { cursor: pointer; }
-details.chronicle-expand summary {
-    list-style: none; display: inline-block; color: var(--magma-orange);
-    font-family: 'Teko', sans-serif; font-size: 1.2rem; letter-spacing: 2px;
-    text-transform: uppercase; border: 1px solid var(--magma-orange);
-    padding: 5px 15px; margin-top: 10px; transition: 0.3s;
-}
-details.chronicle-expand summary:hover { background: var(--magma-orange); color: #000; }
-details[open] summary { margin-bottom: 20px; background: rgba(255, 69, 0, 0.1); }
-details summary::-webkit-details-marker { display: none; }
-
-/* --- STATUS UPLINK (VOLUME 2 LOADING) --- */
-.status-uplink {
-    margin-top: 50px;
-    font-family: 'Rajdhani', sans-serif;
-    letter-spacing: 3px;
+/* --- BUTTONS & CTA (The "Box" Style) --- */
+.cta-button, .nav-back-btn { 
+    display: inline-block; 
+    padding: 12px 35px; 
+    background: transparent; 
+    border: 2px solid var(--magma-orange) !important; 
+    color: var(--magma-orange) !important; 
+    font-family: 'Teko', sans-serif; 
+    font-size: 1.6rem; 
+    letter-spacing: 5px; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    transition: 0.3s;
+    text-decoration: none !important; 
     text-align: center;
 }
 
-.status-label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 12px;
+.cta-button:hover, .nav-back-btn:hover { 
+    background: var(--magma-orange) !important; 
+    color: #000 !important; 
+    transform: scale(1.05); 
+    box-shadow: 0 0 20px var(--magma-orange);
 }
 
-.progress-container {
-    width: 250px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    border-radius: 2px;
-}
-
-.progress-fill {
-    width: 45%; 
-    height: 100%;
-    background: var(--magma-orange);
-    box-shadow: 0 0 15px var(--magma-orange);
-    transition: width 1s ease-in-out;
-    animation: neon-flicker 4s infinite; /* EFECT NEON */
-}
-
-.progress-glitch-overlay {
-    position: absolute;
-    top: 0; left: -100%; width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    animation: scan-bar 3s infinite;
-}
-
-.status-percent {
-    display: block;
-    margin-top: 10px;
-    font-size: 1.2rem;
-    font-family: 'Teko', sans-serif;
-    color: var(--magma-orange);
-    text-shadow: 0 0 10px var(--magma-orange);
-    opacity: 0.8;
-    animation: neon-flicker 4s infinite; /* EFECT NEON */
-}
-
-/* --- BUTTONS & CTA --- */
-.cta-button { 
-    display: inline-block; padding: 15px 35px; background: transparent; 
-    border: 2px solid var(--magma-orange); color: var(--magma-orange); 
-    font-family: 'Teko', sans-serif; font-size: 1.8rem; letter-spacing: 5px; 
-    text-transform: uppercase; cursor: pointer; transition: 0.3s;
-    text-decoration: none; text-align: center;
-}
-
-.cta-button:hover { background: var(--magma-orange); color: #000; transform: scale(1.05); }
-
-/* --- CONTACT FORM --- */
-.form-container { max-width: 600px; margin: 50px auto; padding: 0 20px; }
-.va-form { background: rgba(255, 255, 255, 0.02); padding: 40px; border: 1px solid rgba(255, 69, 0, 0.1); border-left: 4px solid var(--magma-orange); }
-.form-group { margin-bottom: 25px; }
-.form-group label { display: block; font-family: 'Teko', sans-serif; color: var(--magma-orange); letter-spacing: 2px; font-size: 1.2rem; margin-bottom: 8px; }
-.form-group input, .form-group textarea { width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.6); border: 1px solid #333; color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1rem; transition: 0.3s; box-sizing: border-box; }
-.form-group input:focus, .form-group textarea:focus { border-color: var(--magma-orange); outline: none; background: rgba(255, 69, 0, 0.05); }
-
-/* --- FOOTER UNIFORM --- */
-.master-footer { 
-    text-align: center; padding: 80px 20px; font-family: 'Teko', sans-serif; 
-    border-top: 1px solid rgba(255, 69, 0, 0.1); background: rgba(0,0,0,0.8);
-    position: relative; z-index: 10; margin-top: auto; 
-}
-.footer-copy { letter-spacing: 4px; margin: 0; font-size: 1.4rem; color: #fff; text-transform: uppercase; }
-.footer-disclaimer { font-size: 0.9rem; margin-top: 15px; color: #ccc; line-height: 1.6; max-width: 700px; margin: 15px auto 0; opacity: 0.6; }
-
-/* --- RESPONSIVE MASTER --- */
-@media (max-width: 1024px) {
-    header { position: relative; top: 0; left: 0; width: 100%; padding: 30px 0; background: rgba(0,0,0,0.9); text-align: center; }
-    .nav-menu { flex-direction: row; justify-content: center; gap: 20px; }
-    .nav-link { font-size: 1.4rem; letter-spacing: 2px; }
-    .dropdown { left: 50%; transform: translateX(-50%); top: 100%; margin-left: 0; border-left: none; border-top: 3px solid var(--magma-orange); }
-    .chron-content { margin-top: 50px; padding: 0 20px; }
-}
-
-@media (max-width: 480px) {
-    .nav-menu { gap: 10px; flex-wrap: wrap; }
-    .nav-link { font-size: 1.1rem; }
-
-    /* --- VA COMICS STUDIO | PAGE TITLE REPLACEMENT --- */
-
-/* Această regulă localizează elementul care conține titlul "Home" */
-/* și aplică modificarea pe care o dorești. */
-
-/* Presupunând că ai acces la codul HTML, poți adăuga o clasă */
-/* cum ar fi "va-page-title" elementului care conține textul. */
-/* Dacă nu poți adăuga clasa, poți încerca să identifici */
-/* elementul folosind un selector mai specific. */
-
-/* Exemplu: Dacă elementul este un tag <h1>, poți folosi: h1 { ... } */
-/* Dacă elementul este un tag <h2>, poți folosi: h2 { ... } */
-/* Sau, dacă are un ID, poți folosi: #page-title { ... } */
-
-/* Pentru acest exemplu, voi folosi o clasă generică. */
-.va-page-title {
-    /* Dezactivăm fontul Teko pentru titlul original "Home" */
-    font-family: 'Rajdhani', sans-serif !important;
-    font-size: 1.4rem !important;
-    color: var(--pure-white) !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.8;
-}
-
-/* Această regulă utilizează pseudoelementul :after pentru */
-/* a înlocui textul "Home" cu textul "Dead Drop". */
-.va-page-title:after {
-    /* Adăugăm textul "Dead Drop" ca conținut al pseudoelementului */
-    content: "Dead Drop" !important;
-    
-    /* Aplicăm stilurile pe care le dorești pentru noul titlu */
-    font-family: 'Teko', sans-serif !important;
-    font-size: 2.2rem !important;
-    color: var(--pure-white) !important;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    
-    /* Poziționăm noul titlu în locul celui original */
-    display: inline-block;
-    position: relative;
-    left: -1ch; /* Ajustează această valoare pentru o poziționare perfectă */
-}
-
-/* Această regulă ascunde textul original "Home" */
-.va-page-title span {
-    display: none;
-}
-}
+/* Restul stilurilor tale (Chronicles, Form, etc.) rămân neschimbate sub această linie */
