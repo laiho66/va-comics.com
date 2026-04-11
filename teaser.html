@@ -16,7 +16,7 @@
             overflow: hidden;
         }
 
-        /* Fundalul paginii (Imaginea din index.html) */
+        /* Fundalul paginii */
         .page-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: url('bg-home.webp') center/cover no-repeat;
@@ -30,13 +30,16 @@
             border: 1px solid rgba(255, 69, 0, 0.4);
             background: #000;
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+            /* Aspect ratio container for YouTube */
+            aspect-ratio: 16 / 9;
         }
 
-        /* Stil Video */
-        video { 
+        /* Stil Iframe YouTube */
+        iframe { 
             width: 100%; 
-            height: auto; 
+            height: 100%; 
             display: block; 
+            border: none;
             outline: none;
         }
 
@@ -61,14 +64,15 @@
 </head>
 <body>
 
-
     <div class="page-bg"></div>
 
     <div class="video-frame">
-        <video id="teaserVideo" controls poster="bg-home.webp">
-            <source src="Cinematic_Teaser_Video_Generation.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <iframe 
+            src="https://www.youtube.com/embed/Sd7--V8R1ks?autoplay=1&mute=1&controls=1&rel=0" 
+            title="Dead Drop Cinematic Teaser" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
     </div>
 
     <div class="teaser-footer">
