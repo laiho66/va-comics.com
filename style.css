@@ -241,5 +241,71 @@ header { position: relative; top: 0; left: 0; width: 100%; padding: 30px 0; back
 /* Această regulă ascunde textul original "Home" */
 .va-page-title span {
     display: none;
+	/* The Main Terminal Window - Molten Magma Core Upgrade */
+#terminal-window {
+    display: none;
+    width: 350px;
+    height: 450px;
+    background: #000000 !important;
+    flex-direction: column;
+    margin-top: 10px;
+    
+    /* 1. The Rough Volcanic Frame */
+    border: 6px solid #ff4500 !important; 
+    border-radius: 4px !important;
+    
+    /* 2. Multi-Layered Blinding Magma Glow */
+    box-shadow: 
+        0 0 10px rgba(255, 69, 0, 0.5),                  /* Soft outer heat dissipation */
+        0 0 25px rgba(255, 69, 0, 0.3),                  /* Deep room ambient light */
+        inset 0 0 15px rgba(255, 69, 0, 0.6),            /* Molten bleed onto the inside screen edge */
+        inset 0 0 30px rgba(255, 106, 0, 0.4) !important; /* Secondary hot white-orange intensity core */
+        
+    /* 3. The Rhythmic Thermal Pulse */
+    animation: coreThermalPulse 5s infinite ease-in-out !important;
+}
+
+/* Thermal Pulse Animation mimicking drawing power from the subterranean core */
+@keyframes coreThermalPulse {
+    0% { 
+        box-shadow: 0 0 10px rgba(255, 69, 0, 0.5), 0 0 25px rgba(255, 69, 0, 0.3), inset 0 0 15px rgba(255, 69, 0, 0.6), inset 0 0 30px rgba(255, 106, 0, 0.4);
+        border-color: #ff4500;
+    }
+    50% { 
+        box-shadow: 0 0 18px rgba(255, 69, 0, 0.8), 0 0 40px rgba(255, 69, 0, 0.5), inset 0 0 25px rgba(255, 69, 0, 0.9), inset 0 0 45px rgba(255, 140, 0, 0.7);
+        border-color: #ff6a00; /* Shifts slightly brighter to simulate high kinetic absorption */
+    }
+    100% { 
+        box-shadow: 0 0 10px rgba(255, 69, 0, 0.5), 0 0 25px rgba(255, 69, 0, 0.3), inset 0 0 15px rgba(255, 69, 0, 0.6), inset 0 0 30px rgba(255, 106, 0, 0.4);
+        border-color: #ff4500;
+    }
+}
+
+/* Interface Header - Sealed Iron Plate Vibe */
+#terminal-header {
+    background: #0d0d0d !important; /* Deepest volcanic rock gray */
+    border-bottom: 2px solid #ff4500 !important;
+    padding: 8px !important;
+    color: #ff6a00 !important; /* Text glows magma orange instead of cyan */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+    text-shadow: 0 0 5px rgba(255, 106, 0, 0.6) !important;
+}
+
+/* Close link layout */
+#terminal-close { 
+    cursor: pointer; 
+    color: #ff0000 !important; 
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.8) !important;
+}
+
+/* Update system boot message text color inside HTML to match */
+#terminal-messages .system-init {
+    color: #ff6a00 !important;
+    text-shadow: 0 0 4px rgba(255, 69, 0, 0.5);
+}
 }
 }

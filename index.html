@@ -117,10 +117,10 @@ animation: none;
         </iframe>
     </div>
 </div>     
-        
-</main>>
+         
+</main>
 
-<footer style="position: relative; z-index: 999; text-align: center; ...">
+<footer style="position: relative; z-index: 999; text-align: center;">
 <div style="max-width: 1200px; margin: 0 auto; opacity: 0.6;">
 <p style="letter-spacing: 4px; margin: 0; font-size: 1.4rem; color: #fff; text-transform: uppercase;">
 &copy; 2026 VA COMICS STUDIO&trade; // ALL RIGHTS RESERVED
@@ -132,6 +132,344 @@ All narrative elements, characters, and original artwork are protected under int
 Official Publications Available Exclusively on Amazon
 </p>
 </div>
+
+<style>
+#terminal-bot-container {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 100000 !important;
+    font-family: monospace !important;
+}
+
+/* The Pulsing Glow on the Access Button */
+#terminal-toggle {
+    background: #000000 !important;
+    color: #ff4500 !important;
+    border: 2px solid #ff4500 !important;
+    padding: 10px 15px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.4) !important;
+    animation: buttonPulse 4s infinite ease-in-out;
+}
+
+/* Breathing Animation for the Access Button */
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 10px rgba(255, 69, 0, 0.4); border-color: #ff4500; }
+    50% { box-shadow: 0 0 20px rgba(255, 69, 0, 0.8); border-color: #ff6a00; }
+    100% { box-shadow: 0 0 10px rgba(255, 69, 0, 0.4); border-color: #ff4500; }
+}
+
+/* The Main Terminal Window - Volcanic Core Blueprint */
+#terminal-window {
+    display: none;
+    width: 350px;
+    height: 450px;
+    background: #000000 !important;
+    flex-direction: column;
+    margin-top: 10px;
+    border: 5px solid #ff4500 !important;
+    border-radius: 4px !important;
+    box-shadow: 
+        0 0 10px rgba(255, 69, 0, 0.5), 
+        0 0 25px rgba(255, 69, 0, 0.3), 
+        inset 0 0 15px rgba(255, 69, 0, 0.6), 
+        inset 0 0 30px rgba(255, 106, 0, 0.4) !important;
+    animation: coreThermalPulse 5s infinite ease-in-out !important;
+}
+
+@keyframes coreThermalPulse {
+    0% { 
+        box-shadow: 0 0 10px rgba(255, 69, 0, 0.5), 0 0 25px rgba(255, 69, 0, 0.3), inset 0 0 15px rgba(255, 69, 0, 0.6), inset 0 0 30px rgba(255, 106, 0, 0.4);
+        border-color: #ff4500;
+    }
+    50% { 
+        box-shadow: 0 0 18px rgba(255, 69, 0, 0.8), 0 0 40px rgba(255, 69, 0, 0.5), inset 0 0 25px rgba(255, 69, 0, 0.9), inset 0 0 45px rgba(255, 140, 0, 0.7);
+        border-color: #ff6a00;
+    }
+    100% { 
+        box-shadow: 0 0 10px rgba(255, 69, 0, 0.5), 0 0 25px rgba(255, 69, 0, 0.3), inset 0 0 15px rgba(255, 69, 0, 0.6), inset 0 0 30px rgba(255, 106, 0, 0.4);
+        border-color: #ff4500;
+    }
+}
+
+/* Interface Header - Sealed Iron Plate Vibe */
+#terminal-header {
+    background: #0d0d0d !important;
+    border-bottom: 2px solid #ff4500 !important;
+    padding: 8px !important;
+    color: #ff6a00 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+    text-shadow: 0 0 5px rgba(255, 106, 0, 0.6) !important;
+}
+#terminal-close { cursor: pointer; color: #ff0000 !important; text-shadow: 0 0 5px rgba(255, 0, 0, 0.8) !important;}
+
+/* The Message Window Overlaying the CRT Scanlines */
+#terminal-messages {
+    position: relative !important;
+    flex: 1 !important;
+    padding: 12px !important;
+    overflow-y: auto !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    background: radial-gradient(circle, #050505 0%, #000000 100%) !important;
+}
+
+/* Fine-textured CRT Scanline Overlay */
+#terminal-messages::before {
+    content: " " !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0; left: 0; bottom: 0; right: 0 !important;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03)) !important;
+    background-size: 100% 3px, 3px 100% !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+}
+
+#terminal-input-area { border-top: 1px solid #222222 !important; display: flex !important; background: #000000 !important; }
+#terminal-input {
+    flex: 1 !important;
+    background: #000000 !important;
+    color: #ff4500 !important;
+    border: none !important;
+    padding: 12px !important;
+    font-family: monospace !important;
+    outline: none !important;
+    font-size: 13px !important;
+}
+#terminal-send {
+    background: #000000 !important;
+    color: #ff6a00 !important;
+    border: none !important;
+    border-left: 1px solid #222222 !important;
+    padding: 0 15px !important;
+    cursor: pointer !important;
+    font-family: monospace !important;
+    text-shadow: 0 0 4px rgba(255, 106, 0, 0.5) !important;
+}
+
+/* REBUILT v2.0: The Smooth Fade-In Matrix Keyframe Spec */
+.terminal-msg-block {
+    opacity: 0;
+    transform: translateY(3px);
+    animation: matrixFadeIn 0.25s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+@keyframes matrixFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 480px) {
+    #terminal-window {
+        width: calc(100vw - 32px) !important;
+        height: 380px !important;
+        bottom: 70px !important;
+        right: 16px !important;
+    }
+    #terminal-bot-container {
+        bottom: 16px !important;
+        right: 16px !important;
+    }
+}
+</style>
+
+<div id="terminal-bot-container">
+    <button id="terminal-toggle">[ACCESS_FOUNDRY_CORE]</button>
+    <div id="terminal-window">
+        <div id="terminal-header">
+            <span>FOUNDRY_OS // USER_DIRECT_LINK</span>
+            <span id="terminal-close">[X]</span>
+        </div>
+        <div id="terminal-messages">
+            <div class="system-init" style="color: #ff6a00; margin-bottom: 10px; position: relative; z-index: 3; text-shadow: 0 0 4px rgba(255, 69, 0, 0.5);">// SYSTEM INITIALIZED. CONNECTED TO THE SUBTERRANEAN CORE. INJECT INQUIRY LINE...</div>
+        </div>
+        <div id="terminal-input-area">
+            <input type="text" id="terminal-input" placeholder="Query lore, characters, or data...">
+            <button id="terminal-send">➔</button>
+        </div>
+    </div>
+</div>
+
+<script>
+const terminalToggle = document.getElementById('terminal-toggle');
+const terminalWindow = document.getElementById('terminal-window');
+const terminalClose = document.getElementById('terminal-close');
+const terminalMessages = document.getElementById('terminal-messages');
+const terminalInput = document.getElementById('terminal-input');
+const terminalSend = document.getElementById('terminal-send');
+
+let chatHistory = [];
+let isTyping = false; 
+
+// --- THE FOUNDRY AUDIO CORE ---
+const AudioEngine = {
+    ctx: null,
+
+    init() {
+        if (!this.ctx) {
+            this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    },
+
+    // Crisp mechanical keyboard switch sound
+    playClick() {
+        this.init();
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(120, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(40, this.ctx.currentTime + 0.04);
+        
+        gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.04);
+        
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.04);
+    },
+
+    // REBUILT v2.0: Typewriter text tracking blips have been silenced for performance tracking
+    playBlip() {
+        return;
+    },
+
+    // Heavy subterranean power hum when accessing the line terminal
+    playBootHum() {
+        this.init();
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(55, this.ctx.currentTime); // Low 55Hz industrial rumble
+        
+        gain.gain.setValueAtTime(0.0, this.ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.12, this.ctx.currentTime + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.4);
+        
+        const ring = this.ctx.createOscillator();
+        ring.type = 'sine';
+        ring.frequency.setValueAtTime(220, this.ctx.currentTime);
+        ring.connect(gain);
+        
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        
+        osc.start();
+        ring.start();
+        osc.stop(this.ctx.currentTime + 0.4);
+        ring.stop(this.ctx.currentTime + 0.4);
+    }
+};
+
+// --- INTERACTION ACTIONS ---
+
+terminalToggle.addEventListener('click', () => {
+    AudioEngine.playBootHum(); 
+    if (terminalWindow.style.display === 'none' || terminalWindow.style.display === '') {
+        terminalWindow.style.display = 'flex';
+    } else {
+        terminalWindow.style.display = 'none';
+    }
+});
+
+terminalClose.addEventListener('click', () => { 
+    AudioEngine.playClick();
+    terminalWindow.style.display = 'none'; 
+});
+
+// Sound execution attached right to the keyboard inputs
+terminalInput.addEventListener('keydown', () => {
+    AudioEngine.playClick();
+});
+
+// REBUILT v2.0: Rewritten to instantly assign text to the block without ticker loops
+function typeWriterEffect(element, text) {
+    element.innerHTML = text;
+    terminalMessages.scrollTop = terminalMessages.scrollHeight;
+    isTyping = false;
+    return Promise.resolve();
+}
+
+async function sendMessage() {
+    const text = terminalInput.value.trim();
+    if (!text || isTyping) return; 
+
+    appendMessage('USER', text, '#ff4500');
+    terminalInput.value = '';
+
+    const loadingDiv = appendMessage('CORE', 'COMMUNICATION_LOOP_PENDING...', '#ff4500');
+
+    try {
+        const response = await fetch('/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text, history: chatHistory })
+        });
+        
+        const data = await response.json();
+        
+        if (data.response) {
+            // Instantly eliminate the pending string row
+            loadingDiv.remove();
+            
+            // Build the clean container block to deploy our Fade-In Matrix css hook
+            const newMsgDiv = appendMessage('CORE', data.response, '#ff6a00');
+            
+            // REBUILT v2.0: If the payload is an edge firewall intercept, flush memory cache immediately
+            if (data.response.includes("[ACCESS DENIED") || data.response.includes("[UNMAPPED COORDINATES")) {
+                chatHistory = []; 
+            } else {
+                chatHistory.push({ role: "user", content: text });
+                chatHistory.push({ role: "assistant", content: data.response });
+            }
+        } else {
+            loadingDiv.remove();
+            appendMessage('CORE', 'ERROR: SECURE CONNECTION BROKEN.', '#ff0000');
+        }
+    } catch (err) {
+        loadingDiv.remove();
+        appendMessage('CORE', 'SYSTEM FAIL: UNABLE TO REACH CONSOLE.', '#ff0000');
+    }
+}
+
+function appendMessage(sender, message, color) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'terminal-msg-block'; // Attached the CSS animation wrapper rule here
+    msgDiv.style.marginBottom = '12px';
+    msgDiv.style.position = 'relative';
+    msgDiv.style.zIndex = '3'; 
+    
+    msgDiv.innerHTML = `<span class="msg-prefix" style="color: ${color}; font-weight: bold;">[${sender}]:</span> <span class="msg-payload" style="color: #ddd;">${message}</span>`;
+    terminalMessages.appendChild(msgDiv);
+    terminalMessages.scrollTop = terminalMessages.scrollHeight;
+    return msgDiv;
+}
+
+terminalSend.addEventListener('click', () => {
+    AudioEngine.playClick();
+    sendMessage();
+});
+
+terminalInput.addEventListener('keypress', (e) => { 
+    if (e.key === 'Enter') {
+        AudioEngine.playClick();
+        sendMessage(); 
+    }
+});
+</script>
 </footer>
 </body>
 </html>
