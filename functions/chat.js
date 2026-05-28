@@ -26,12 +26,17 @@ export async function onRequestPost(context) {
       });
     }
 
-   // ==========================================
+    // ==========================================
     // 2. THE LIGHTWEIGHT LORE MATRIX EXTRACTOR
     // ==========================================
     let targetedContext = extendedLoreBrain.world; // Default baseline context
 
-    // REBUILT v2.0: Explicit routing override to prevent Llama from confusing the character with spy network definitions
+    // HARDCODED OVERRIDE: Catch character list scans or count metrics instantly
+    if (cleanPrompt.includes("list") || cleanPrompt.includes("how many characters") || cleanPrompt.includes("all characters") || cleanPrompt.includes("all the characters")) {
+      targetedContext += `\n\nOFFICIAL CHARACTER METRICS:\n${JSON.stringify(extendedLoreBrain.database_metrics)}`;
+    }
+
+    // Rebuilt v2.0 routing override for the protagonist
     if (cleanPrompt.includes("who is dead drop") || cleanPrompt.includes("what is dead drop")) {
       targetedContext += `\n\nCHARACTER PROFILE:\n${extendedLoreBrain.characters["dead drop"]}`;
     }
@@ -64,6 +69,7 @@ OPERATIONAL PROTOCOLS:
 - Tone: Cold, flat, and strictly to the point. Completely eliminate all theatrical character fluff, swagger, bragging, bad jokes, and welcoming or closing pleasantries. Treat queries purely as data requests.
 - Scope: You only possess information regarding the Dead Drop comic universe, its characters, and its geographic sectors. Completely refuse to answer queries regarding the real world.
 - Format: Keep all data readouts compressed, clear, and punchy. Limit descriptions to a maximum of 2 to 3 sentences per query to prevent terminal text overflow.
+- Enforcement: If provided with OFFICIAL CHARACTER METRICS, you must strictly return ONLY the names listed under authorized_character_list and authorized_factions. Do not invent any other names under any circumstance.
 
 Use the following targeted database file to extract your answers:
 ${targetedContext}`;
