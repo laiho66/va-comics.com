@@ -18,7 +18,26 @@ export const extendedLoreBrain = {
       "Iron Kings Thugs",
       "Krest Operatives"
     ],
-    system_behavior_mandate: "STRICT ENFORCEMENT: If a user asks for a total character count or a complete character list, return exactly these names and factions. Do not invent, extrapolate, or hallucinate any other names or characters outside of this list. If a character is not explicitly mentioned in this database, reply that no match is found within the records."
+    total_sectors: 16,
+    authorized_sector_list: [
+      "Sector 00 (The Dredge)",
+      "Sector 01 (The Slums / 'The Gut')",
+      "Sector 02 (The Throat)",
+      "Sector 03 (The Smolder)",
+      "Sector 04 (The Rust Zone)",
+      "Sector 05 (The Pulse / 'The Electric Slick')",
+      "Sector 06 (The Vortex)",
+      "Sector 07 (The Stone)",
+      "Sector 08 (The Neural)",
+      "Sector 09 (The Iron District)",
+      "Sector 10 (The Glass)",
+      "Sector 11 (The Oasis)",
+      "Sector 12 (The Canopy)",
+      "Sector 13 (The Kiln)",
+      "Sector 14 (The Marrow)",
+      "Sector 15 (The Silence)"
+    ],
+    system_behavior_mandate: "STRICT ENFORCEMENT: If a user asks for a total character count, character list, sector count, or full sector list, return exactly these names, factions, and sectors. Do not invent, extrapolate, or hallucinate any other names, sectors, or descriptions outside of this list. If an asset is not explicitly mentioned in this database, reply that no match is found within the records."
   },
 
   world: "Setting: A gritty, tech-noir vertical dystopian city defined by absolute contrast and brutal urban landscapes. Driven by a strict, heavy Chiaroscuro visual mandate. Light and darkness are violently segregated. The world relies on deep, light-absorbing OLED black shadows (#000000) contrasted against unyielding, high-density accent colors. Low-sectors are caked in dark, messy ink-washes, freezing stagnant air, unventilated grease, burning fuel barrels, and industrial grime. High-sectors use sterile cyan-white or high-frequency corporate blue light blocks to highlight clean, seamless geometric lines. Canonical timeline is post-Issue 11 events, entering the opening pacing vectors of Issue 12.",
@@ -65,3 +84,6 @@ export const extendedLoreBrain = {
 
   foundry: "The Foundry: An unmapped, top-secret subterranean black-site facility hidden deep within the unmonitored dead zone running between Sector 01 and Sector 00, operating completely off the municipal power grid using pirated copper bundles and standalone energy cells. Physical entrance hidden behind a heavy, multi-ton monolithic door crafted from a hyper-dense composite featuring a complex camouflage outer skin that perfectly mimics water-stained concrete, decaying brickwork, scaling rust, and green biological moss. Entrance features zero keyholes, physical handles, or external keypads; passive perimeter sensors continuously sweep the entry boundary specifically for the high-frequency energy signature of Jaxen Vance’s Revenant suit mesh to open automatically with a pressurized hydraulic hiss. Interior constructed entirely from a hyper-dense, light-absorbing matte obsidian composite material engineered to hit the absolute OLED black visual standard (#000000), possessing perfect kinetic memory that absorbs extreme physical force and impacts without leaving a single scar, scratch, or visible mark from training combat. No traditional light fixtures installed; illumination provided exclusively by micro-thin geometric conduits etched directly into panels and floors that pulse with a cold Neon Cyan or flat Dormant White system color when idle, flaring into a blinding Magma Orange glare during user interface handshakes. Workstations feature flat sheets of matte black composite that deploy touch-sensitive dark-glass holographic displays tracking system tolerances, memory block allocations, and regional network logs. Mainframe interface parameters change based entirely on the biometric handshake of the connecting carbon-unit: automatically synchronizing to a Magma Orange profile for Jaxen Vance to open master diagnostics, while glowing a dim Neon Cyan for normal, unaugmented biological units (Mia or Elias Vance) to display a secure administrative lockdown screen and project an electrostatic keyboard directly onto the flat surface using targeted electronic pulses to mimic physical key-clicks, completely locking out normal assets from telemetry without a physical override key-drive."
 };
+
+
+and you also have my live chat.js from the previous prompt. give me the absolute full fix for both files.
