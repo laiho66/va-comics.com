@@ -1,205 +1,109 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VA Comics // DEAD DROP // DATABASE_SUBHUB</title>
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        /* CONFIGURAȚIE SPECIFICĂ PENTRU SUB-HUB-UL DEAD DROP */
-        .deaddrop-volumes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1100px;
-        }
+    <title>Dead Drop // VA Comics</title>
 
-        .volume-channel-card {
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .volume-channel-card:hover {
-            border-color: var(--magma-orange) !important;
-            box-shadow: 0 0 20px rgba(255, 69, 0, 0.25);
-            transform: translateY(-4px);
-        }
-
-        .volume-tag {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 11px;
-            color: var(--magma-orange);
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-
-        .volume-info h2 {
-            font-size: 22px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-colorless);
-            margin-bottom: 12px;
-        }
-
-        .volume-info p {
-            font-size: 14px;
-            color: var(--terminal-gray);
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .btn-access-vol {
-            display: block;
-            text-align: center;
-            background: transparent;
-            border: 1px solid var(--dark-fence);
-            color: var(--text-colorless);
-            text-decoration: none;
-            padding: 14px;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .volume-channel-card:hover .btn-access-vol {
-            border-color: var(--text-colorless);
-            background: var(--pure-black);
-        }
-    </style>
+    <!-- SEO (descrierea: maxim 155 de caractere) -->
+    <meta name="description" content="Dead Drop is a violent, uncensored tech-noir comic series. Read the issues online or get them on Amazon. Mature readers, 18+.">
+    <link rel="canonical" href="https://va-comics.com/deaddrop/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VA Comics">
+    <meta property="og:title" content="Dead Drop // VA Comics">
+    <meta property="og:description" content="Dead Drop is a violent, uncensored tech-noir comic series. Read the issues online or get them on Amazon. Mature readers, 18+.">
+    <meta property="og:url" content="https://va-comics.com/deaddrop/">
+    <meta property="og:image" content="https://va-comics.com/deaddrop/assets/og-deaddrop.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body class="content-page">
 
-    <div class="bunker-bg-overlay"></div>
+<!-- ======================================================================
+     DEAD DROP: HUB (Etapa 3)
+     EDIT: premisa seriei (500 de caractere) și fraza din panoul Characters (120).
+     Imaginea mare: deaddrop/assets/key-art.webp (1200x1500). Până apare, se vede caseta cu dungi.
+     ====================================================================== -->
+<body data-bg="deaddrop">
 
-    <button class="mobile-bunker-toggle" onclick="toggleMobileMenu()">
-        [ = ] SYS_MENU
-    </button>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="os-container">
-        
-        <nav class="sidebar-nav" id="globalNav">
-            <ul class="main-menu">
-                
-                <li class="menu-item">
-                    <a href="../index.html" class="nav-link">
-                        <span class="node-num">[01]</span> HOME
-                    </a>
-                </li>
+<div class="shell">
+    <nav class="nav" id="siteNav" aria-label="Main"></nav>
+    <script src="/site.js"></script>
 
-                <li class="menu-item has-dropdown active" onclick="toggleMobileDropdown(this, event)">
-                    <a href="../projects.html" class="nav-link">
-                        <span class="node-num">[02]</span> PROJECTS
-                    </a>
-                    <ul class="dropdown-level-1">
-                        <li class="dropdown-item has-sub-dropdown active" onclick="toggleMobileSubDropdown(this, event)">
-                            <a href="index.html">> DEAD DROP</a>
-                            <ul class="dropdown-level-2">
-                                <li><a href="vol1.html">» VOL 1 (ISSUES 1-8)</a></li>
-                                <li><a href="vol2.html">» VOL 2 (ISSUES 9-12+)</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+    <main class="main" id="main">
 
-                <li class="menu-item">
-                    <a href="../chronicles.html" class="nav-link">
-                        <span class="node-num">[03]</span> CHRONICLES
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a href="../media.html" class="nav-link">
-                        <span class="node-num">[04]</span> MEDIA
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a href="../about.html" class="nav-link">
-                        <span class="node-num">[05]</span> ABOUT US
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a href="../contact.html" class="nav-link">
-                        <span class="node-num">[06]</span> CONTACT
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="content-wrapper">
-            <div class="deaddrop-volumes-grid">
-                
-                <div class="volume-channel-card">
-                    <div class="volume-info">
-                        <div class="volume-tag">ARCHIVE_FILE // [VOL_01]</div>
-                        <h2>Volume 1 // Issues 1-8</h2>
-                        <p>Inicierea protocolului Dead Drop. Începutul poveștii brute în inima de fier a buncărului. Include primele 8 numere complete în format digital și paperback.</p>
-                    </div>
-                    <a href="vol1.html" class="btn-access-vol">[ LOAD_VOLUME_01 ]</a>
-                </div>
-
-                <div class="volume-channel-card">
-                    <div class="volume-info">
-                        <div class="volume-tag">ARCHIVE_FILE // [VOL_02]</div>
-                        <h2>Volume 2 // Issues 9-12+</h2>
-                        <p>Extinderea rețelei de criminalitate tech-noir. Intră în scenă facțiunile Krest și Iron Kings. Război total, fără cenzură sau filtre editoriale.</p>
-                    </div>
-                    <a href="vol2.html" class="btn-access-vol">[ LOAD_VOLUME_02 ]</a>
-                </div>
-
-            </div>
+        <div class="page-head">
+            <nav class="crumbs" id="crumbs"></nav>
+            <div class="title-row"><h1 class="h1">Dead Drop</h1><span class="chip">18+</span></div>
         </div>
 
-        <footer class="bunker-footer">
-            <div class="hud-status-bar">
-                <span class="status-indicator"></span> // SYS_STATUS: OPERATIONAL [MAGMA_ACTIVE]
+        <!-- ===== INTRO + READ ISSUE #1 ===== -->
+        <article class="card card--row card--static" style="border-top: 2px solid var(--accent);">
+            <div class="media ratio-4x5"><div class="ph">[ DEAD DROP KEY ART<br>deaddrop/assets/key-art.webp ]</div><img class="fade" src="/deaddrop/assets/key-art.webp" alt="Dead Drop key art" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+                <div class="stack">
+                    <span class="tag">MISSION_BRIEF // SERIES_OVERVIEW</span>
+                    <!-- EDIT: premisa seriei, 3-4 propoziții, fără spoilere -->
+                    <p class="copy">In Terminus City, soot hangs over the Slums and the neon of the upper sectors is a lie sold to the world. Jaxen Vance, a courier chasing cash for his father's medicine, becomes a walking kinetic reactor bound to a living suit. As Dead Drop he walks the underground, where gangs, a smiling kingpin and a shadowy architect decide who survives.</p>
+                    <div class="chips"><span class="chip">COMIC SERIES</span><span class="chip">13 ISSUES</span><span class="chip">2 VOLUMES</span><span class="chip">18+</span></div>
+                </div>
+                <div class="stack-sm">
+                    <div class="row"><a class="btn btn--primary btn--lg" href="/media/viewer.html?issue=1">READ ISSUE #1</a></div>
+                    <span class="meta">&gt; OPENS THE READER</span>
+                </div>
             </div>
-            <div class="legal-bindings">
-                <a href="../terms.html" class="legal-link">// LEGAL_BINDINGS</a>
-                <a href="../privacy.html" class="legal-link">// DATA_ENCRYPTION_POLICY</a>
-                <a href="../cookies.html" class="legal-link">// SIGNAL_TRACKING_PROTOCOL</a>
+        </article>
+
+        <!-- ===== VOLUMES (volum nou = copiezi un <article> întreg) ===== -->
+        <section class="stack">
+            <h2 class="section-label"><span>Volumes</span></h2>
+            <article class="card card--row card--band">
+                <div class="media ratio-2x3"><div class="ph">[ VOLUME 1 COVER ]</div><img class="fade" src="/deaddrop/assets/cover1.webp" alt="Dead Drop Volume 1 cover" loading="lazy" onerror="this.remove()"></div>
+                <div class="card-body">
+                    <div class="stack">
+                        <span class="tag">ARCHIVE_FILE // [VOL_01]</span>
+                        <h3 class="h2">Volume 1 // Issues 1-8</h3>
+                        <p class="small">Initiating the Dead Drop protocol. The raw beginning of the story, deep in the iron heart of the bunker. Includes the first 8 issues in digital and paperback.</p>
+                    </div>
+                    <div class="row"><a class="btn btn--primary" href="/deaddrop/vol1.html">LOAD_VOLUME_01</a></div>
+                </div>
+            </article>
+            <article class="card card--row card--band">
+                <div class="media ratio-2x3"><div class="ph">[ VOLUME 2 COVER ]</div><img class="fade" src="/deaddrop/assets/cover9.webp" alt="Dead Drop Volume 2 cover" loading="lazy" onerror="this.remove()"></div>
+                <div class="card-body">
+                    <div class="stack">
+                        <span class="tag">ARCHIVE_FILE // [VOL_02]</span>
+                        <h3 class="h2">Volume 2 // Issues 9-13</h3>
+                        <p class="small">The tech-noir crime network expands. The Krest and Iron Kings factions enter the stage. Total war, no censorship, no editorial filters.</p>
+                    </div>
+                    <div class="row"><a class="btn btn--primary" href="/deaddrop/vol2.html">LOAD_VOLUME_02</a></div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ===== CHARACTERS ===== -->
+        <section class="card card--row card--static" style="border-left: 3px solid var(--accent);">
+            <div class="card-body" style="flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 24px; padding: 26px 28px;">
+                <div class="row" style="gap: 10px; flex-wrap: nowrap;"><div class="media ratio-2x3" style="width: 72px; flex: 0 0 72px;"><div class="ph"></div><img src="/deaddrop/assets/characters/jaxen-vance.webp" alt="" loading="lazy" onerror="this.remove()"></div><div class="media ratio-2x3" style="width: 72px; flex: 0 0 72px;"><div class="ph"></div><img src="/deaddrop/assets/characters/mia-vance.webp" alt="" loading="lazy" onerror="this.remove()"></div><div class="media ratio-2x3" style="width: 72px; flex: 0 0 72px;"><div class="ph"></div><img src="/deaddrop/assets/characters/leo-cruz.webp" alt="" loading="lazy" onerror="this.remove()"></div></div>
+                <div class="stack" style="flex: 1 1 260px;">
+                    <span class="tag">PERSONNEL_FILES // CHARACTERS</span>
+                    <h2 class="h2">Meet the operatives</h2>
+                    <!-- EDIT: o linie (120 de caractere) -->
+                    <p class="small">The operatives, the gangs and the people caught in between.</p>
+                    <div class="row"><a class="btn btn--primary" href="/deaddrop/characters.html">OPEN_CHARACTERS</a></div>
+                </div>
             </div>
-        </footer>
+        </section>
 
-    </div>
+    </main>
+</div>
 
-    <script>
-        function toggleMobileMenu() {
-            const nav = document.getElementById('globalNav');
-            const toggleBtn = document.querySelector('.mobile-bunker-toggle');
-            nav.classList.toggle('mobile-open');
-            if(nav.classList.contains('mobile-open')) {
-                toggleBtn.textContent = "[ X ] CLOSE_MENU";
-                toggleBtn.style.color = "#FF4500";
-            } else {
-                toggleBtn.textContent = "[ = ] SYS_MENU";
-                toggleBtn.style.color = "#ffffff";
-            }
-        }
-        function toggleMobileDropdown(element, event) {
-            if (window.innerWidth < 1024) {
-                if (event.target.classList.contains('nav-link') || event.target.parentElement.classList.contains('nav-link')) {
-                    event.preventDefault();
-                }
-                element.classList.toggle('open');
-            }
-        }
-        function toggleMobileSubDropdown(element, event) {
-            if (window.innerWidth < 1024) {
-                event.stopPropagation();
-                event.preventDefault();
-                element.classList.toggle('open');
-            }
-        }
-    </script>
+<footer class="site-footer" id="siteFooter"></footer>
 </body>
 </html>
