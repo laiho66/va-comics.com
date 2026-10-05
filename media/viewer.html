@@ -1,282 +1,138 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VA Comics // MEDIA // GRAPHIC_FILES</title>
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        /* ==========================================================================
-           CONFIGURAȚIE INTERFAȚĂ SPLIT-SCREEN CINEMATIC (VARIANTA B)
-           ========================================================================== */
-        .viewer-terminal-container {
-            width: 100%;
-            max-width: 1000px;
-            display: flex;
-            flex-direction: row; /* Aliniere pe orizontală: Miniaturi în stânga, Monitor în dreapta */
-            gap: 25px;
-            align-items: flex-start;
-        }
+    <title>Read Dead Drop Online // VA Comics</title>
 
-        /* COLOANA STÂNGA: SELECTORUL DE NODURI (MINIATURI VERTICALE) */
-        .thumbnails-grid-hud {
-            display: flex;
-            flex-direction: column; /* Forțăm așezarea una sub alta, în stivă */
-            gap: 15px;
-            position: relative;
-            padding: 25px 15px 15px 15px;
-            border: 1px solid var(--dark-fence);
-            background: rgba(0, 0, 0, 0.3);
-            width: 130px; /* Lățime fixă, compactă pentru coloana din stânga */
-            flex-shrink: 0;
-            box-sizing: border-box;
-        }
-
-        .thumbnails-grid-hud::before {
-            content: "NODES";
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            background: #050505;
-            padding: 0 8px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 11px;
-            color: var(--terminal-gray);
-            letter-spacing: 1px;
-        }
-
-        .thumb-node {
-            width: 100%;
-            aspect-ratio: 2/3; /* FORMAT PORTRET PERFECT PENTRU COPERȚI / PAGINI CORECTE */
-            object-fit: cover;
-            background: #000000;
-            border: 1px solid #151515;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            opacity: 0.5;
-            display: block;
-        }
-
-        .thumb-node:hover {
-            opacity: 0.9;
-            border-color: var(--terminal-gray);
-        }
-
-        .thumb-node.node-selected {
-            opacity: 1 !important;
-            border-color: var(--magma-orange) !important;
-            box-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
-        }
-
-        /* COLOANA DREAPTA: MONITORUL HUD PRINCIPAL */
-        .main-display-box {
-            flex-grow: 1; /* Ocupă automat tot spațiul rămas în dreapta */
-            padding: 15px;
-            position: relative;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--dark-fence);
-            box-sizing: border-box;
-        }
-
-        .main-display-box::before {
-            content: "IMAGE_VIEWER // HIGH_RESOLUTION_FEED";
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            background: #050505;
-            padding: 0 10px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 11px;
-            color: var(--magma-orange);
-            letter-spacing: 1px;
-        }
-
-        .active-image-frame {
-            width: auto;
-            max-width: 100%;
-            max-height: 65vh; /* Împiedică imaginea să devină mai înaltă decât ecranul laptopului */
-            object-fit: contain;
-            background: #000000;
-            border: 1px solid #111;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .media-header-title {
-            font-size: 24px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--magma-orange);
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--dark-fence);
-            padding-bottom: 10px;
-        }
-
-        /* COMPATIBILITATE MOBIL // STRUCTURA RE-ALINIATĂ PE TELEFOANE */
-        @media (max-width: 768px) {
-            .viewer-terminal-container {
-                flex-direction: column; /* Trecem de la rând la coloană: monitorul sus, miniaturile jos */
-                gap: 20px;
-            }
-            .main-display-box {
-                padding: 8px;
-            }
-            .active-image-frame {
-                max-height: 50vh; /* Lăsăm spațiu pe ecranul telefonului */
-            }
-            .thumbnails-grid-hud {
-                width: 100%;
-                flex-direction: row; /* Pe mobil devine bandă orizontală de miniaturi */
-                justify-content: center;
-                padding: 20px 10px 10px 10px;
-                gap: 10px;
-            }
-            .thumbnails-grid-hud::before {
-                content: "AVAILABLE_NODES // CONCEPT_ART";
-            }
-            .thumb-node {
-                width: auto;
-                height: 70px; /* Limităm înălțimea bănzii pe mobil */
-            }
-        }
-    </style>
+    <!-- SEO (descrierea: maxim 155 de caractere) -->
+    <meta name="description" content="Read Dead Drop online. Every available issue, page by page, in the VA Comics reader. Mature readers, 18+.">
+    <link rel="canonical" href="https://va-comics.com/media/viewer">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VA Comics">
+    <meta property="og:title" content="Read Dead Drop Online // VA Comics">
+    <meta property="og:description" content="Read Dead Drop online. Every available issue, page by page, in the VA Comics reader.">
+    <meta property="og:url" content="https://va-comics.com/media/viewer">
+    <meta property="og:image" content="https://va-comics.com/deaddrop/assets/og-deaddrop.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body class="content-page">
 
-    <div class="bunker-bg-overlay"></div>
+<!-- ======================================================================
+     VIEWER: biblioteca + cititorul (Etapa 5)
 
-    <button class="mobile-bunker-toggle" onclick="toggleMobileMenu()">
-        [ = ] SYS_MENU
-    </button>
+     !!! IMPORTANT (Foundry) !!!
+     Blocul <script> de mai jos, cu R2_BASE_URL, buildPages și COMICS_DATABASE, este COPIAT
+     EXACT din viewer-ul vechi, ca Foundry să continue să adauge issue-uri în el.
+     NU schimba numele, ordinea sau formatul liniilor. Un issue nou = o linie nouă în
+     COMICS_DATABASE (virgulă după linia dinainte). Restul (biblioteca, cititorul) se
+     face singur în assets/reader.js, deci nu trebuie atins pentru un issue nou.
+     Coperta unui issue nou: deaddrop/assets/coverN.webp (N = numărul issue-ului).
+     ====================================================================== -->
+<body data-bg="deaddrop">
 
-    <div class="os-container">
-        
-        <nav class="sidebar-nav" id="globalNav">
-            <ul class="main-menu">
-                <li class="menu-item">
-                    <a href="../index.html" class="nav-link"><span class="node-num">[01]</span> HOME</a>
-                </li>
-                <li class="menu-item has-dropdown" onclick="toggleMobileDropdown(this, event)">
-                    <a href="../projects.html" class="nav-link"><span class="node-num">[02]</span> PROJECTS</a>
-                    <ul class="dropdown-level-1">
-                        <li class="dropdown-item has-sub-dropdown" onclick="toggleMobileSubDropdown(this, event)">
-                            <a href="../deaddrop/index.html">> DEAD DROP</a>
-                            <ul class="dropdown-level-2">
-                                <li><a href="../deaddrop/vol1.html">» VOL 1 (ISSUES 1-8)</a></li>
-                                <li><a href="../deaddrop/vol2.html">» VOL 2 (ISSUES 9-12+)</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a href="../chronicles.html" class="nav-link"><span class="node-num">[03]</span> CHRONICLES</a>
-                </li>
-                <li class="menu-item active">
-                    <a href="../media.html" class="nav-link"><span class="node-num">[04]</span> MEDIA </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../about.html" class="nav-link"><span class="node-num">[05]</span> ABOUT US</a>
-                </li>
-                <li class="menu-item">
-                    <a href="../contact.html" class="nav-link"><span class="node-num">[06]</span> CONTACT</a>
-                </li>
-            </ul>
-        </nav>
+<a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="content-wrapper">
-            
-            <h1 class="media-header-title">Graphic Files // Concept Intel</h1>
+<div class="shell">
+    <nav class="nav" id="siteNav" aria-label="Main"></nav>
+    <script src="/site.js"></script>
 
-            <div class="viewer-terminal-container">
-                
-                <div class="thumbnails-grid-hud">
-                    
-                    <img src="assets/issue1.webp" 
-                         class="thumb-node node-selected" 
-                         alt="Concept 1" 
-                         onclick="changeDisplayImage('assets/issue1.webp', this)">
-                         
-                    <img src="assets/cover9.webp" 
-                         class="thumb-node" 
-                         alt="Concept 2" 
-                         onclick="changeDisplayImage('assets/cover9.webp', this)">
-                         
-                    <img src="assets/issue1.webp" 
-                         class="thumb-node" 
-                         alt="Concept 3" 
-                         onclick="changeDisplayImage('assets/issue1.webp', this)">
-                         
-                    <img src="https://via.placeholder.com/300x450/050505/ff4500?text=NODE_04" 
-                         class="thumb-node" 
-                         alt="Concept 4" 
-                         onclick="changeDisplayImage('https://via.placeholder.com/300x450/050505/ff4500?text=NODE_04', this)">
-
-                </div>
-
-                <div class="main-display-box">
-                    <img id="mainViewerDisplay" 
-                         src="assets/test.webp" 
-                         class="active-image-frame" 
-                         alt="Dead Drop Main Intel">
-                </div>
-
+    <main class="main" id="main">
+        <div id="library" class="stack-lg">
+            <div class="page-head">
+                <nav class="crumbs" id="crumbs"></nav>
+                <div class="title-row"><h1 class="h1">Dead Drop Reader</h1><span class="chip">18+</span></div>
+                <p class="lead">Every available issue, page by page. Your place is remembered in this browser.</p>
             </div>
+            <div id="resume"></div>
+            <div id="volumes" class="stack-lg"></div>
+            <noscript><p class="small">The reader needs JavaScript. You can also get every issue on Amazon: <a href="/deaddrop/vol1.html">Volume 1</a> · <a href="/deaddrop/vol2.html">Volume 2</a>.</p></noscript>
         </div>
+    </main>
+</div>
 
-        <footer class="bunker-footer">
-            <div class="hud-status-bar">
-                <span class="status-indicator"></span> // SYS_STATUS: OPERATIONAL [MAGMA_ACTIVE]
-            </div>
-            <div class="legal-bindings">
-                <a href="../terms.html" class="legal-link">// LEGAL_BINDINGS</a>
-                <a href="../privacy.html" class="legal-link">// DATA_ENCRYPTION_POLICY</a>
-                <a href="../cookies.html" class="legal-link">// SIGNAL_TRACKING_PROTOCOL</a>
-            </div>
-        </footer>
+<footer class="site-footer" id="siteFooter"></footer>
 
+<!-- ===== CITITORUL (ecran complet) ===== -->
+<div class="reader" id="reader" hidden role="dialog" aria-modal="true" aria-label="Comic reader">
+    <div class="reader-top">
+        <div class="reader-top-left">
+            <button type="button" class="rbtn" id="rBack">&larr; LIBRARY</button>
+            <span class="reader-title" id="rTitle"></span>
+        </div>
+        <div class="reader-tools">
+            <select class="rselect" id="rIssue" aria-label="Choose an issue"></select>
+            <button type="button" class="rbtn" id="rZoom">&oplus; ZOOM</button>
+            <button type="button" class="rbtn" id="rMap">&#9638; PAGES</button>
+            <button type="button" class="rbtn" id="rFull" aria-label="Full screen">&#9974;</button>
+        </div>
     </div>
 
-    <script>
-        function changeDisplayImage(newSrc, element) {
-            const display = document.getElementById('mainViewerDisplay');
-            display.src = newSrc;
-            
-            // Eliminăm clasa de selecție de pe nodul vechi
-            document.querySelectorAll('.thumb-node').forEach(thumb => {
-                thumb.classList.remove('node-selected');
-            });
-            
-            // Aprindem noul nod cu portocaliu vulcanic
-            element.classList.add('node-selected');
+    <div class="reader-main">
+        <div class="reader-stage">
+            <div class="reader-page" id="rPageBox">
+                <img id="rImg" alt="" decoding="async">
+                <div class="reader-loading" id="rLoading" hidden>LOADING_PAGE...</div>
+            </div>
+            <button type="button" class="reader-zone reader-zone--l" id="rZoneL" tabindex="-1" aria-hidden="true"></button>
+            <button type="button" class="reader-zone reader-zone--c" id="rZoneC" tabindex="-1" aria-hidden="true"></button>
+            <button type="button" class="reader-zone reader-zone--r" id="rZoneR" tabindex="-1" aria-hidden="true"></button>
+            <button type="button" class="reader-arrow reader-arrow--l" id="rPrev" aria-label="Previous page">&lsaquo;</button>
+            <button type="button" class="reader-arrow reader-arrow--r" id="rNext" aria-label="Next page">&rsaquo;</button>
+            <div class="reader-end" id="rEnd" hidden></div>
+        </div>
+        <aside class="reader-map" id="rMapPanel" hidden aria-label="Page map">
+            <div class="reader-map-head"><span>// PAGE_MAP</span><button type="button" class="rbtn" id="rMapClose" aria-label="Close the page map">X</button></div>
+            <div class="reader-thumbs" id="rThumbs"></div>
+        </aside>
+    </div>
+
+    <div class="reader-bottom">
+        <span class="reader-count" id="rCount">1 / 1</span>
+        <input type="range" id="rRange" min="1" max="1" value="1" aria-label="Page">
+        <span class="reader-hint">&larr; &rarr; KEYS &middot; SWIPE ON TOUCH &middot; F = FULL SCREEN</span>
+    </div>
+</div>
+
+<!-- ===== BAZA DE DATE A ISSUE-URILOR (copiată exact din viewer-ul vechi; o actualizează Foundry) ===== -->
+<script>
+
+        // 1. LINK BAZĂ CLOUDFLARE R2
+        const R2_BASE_URL = "https://pub-b3a8a09f297e48cfaca67d22b3826089.r2.dev/deaddrop";
+
+        // Generator pagini (page1.webp -> totalPages)
+        function buildPages(folderName, totalPages) {
+            var pages = [];
+            for (var i = 1; i <= totalPages; i++) {
+                pages.push(R2_BASE_URL + "/" + folderName + "/page" + i + ".webp");
+            }
+            return pages;
         }
 
-        function toggleMobileMenu() {
-            const nav = document.getElementById('globalNav');
-            const toggleBtn = document.querySelector('.mobile-bunker-toggle');
-            nav.classList.toggle('mobile-open');
-            if(nav.classList.contains('mobile-open')) {
-                toggleBtn.textContent = "[ X ] CLOSE_MENU";
-                toggleBtn.style.color = "#FF4500";
-            } else {
-                toggleBtn.textContent = "[ = ] SYS_MENU";
-                toggleBtn.style.color = "#ffffff";
-            }
-        }
-        function toggleMobileDropdown(element, event) {
-            if (window.innerWidth < 1024) {
-                if (event.target.classList.contains('nav-link') || event.target.parentElement.classList.contains('nav-link')) {
-                    event.preventDefault();
-                }
-                element.classList.toggle('open');
-            }
-        }
-        function toggleMobileSubDropdown(element, event) {
-            if (window.innerWidth < 1024) {
-                event.stopPropagation();
-                event.preventDefault();
-                element.classList.toggle('open');
-            }
-        }
-    </script>
+        // 2. BAZA DE DATE CONFIGURATĂ
+        const COMICS_DATABASE = {
+            "1":    { title: "Originea // Volumul I", badge: "ISSUE #01", pages: buildPages("issue1", 23) },
+            "2":    { title: "Dead Drop: Ghost Mark", badge: "ISSUE #02", pages: buildPages("issue2", 22) },
+            "3":    { title: "Confruntarea // Volumul I", badge: "ISSUE #03", pages: buildPages("issue3", 24) },
+            "4":    { title: "Infiltrarea // Volumul I", badge: "ISSUE #04", pages: buildPages("issue4", 25) },
+            "5":    { title: "Alianța Secretă // Volumul I", badge: "ISSUE #05", pages: buildPages("issue5", 25) },
+            "6":    { title: "Dead Drop: Terminal Protocol Part 1", badge: "ISSUE #06", pages: buildPages("issue6", 24) },
+            "7":    { title: "Dead Drop: Terminal Protocol Part 2", badge: "ISSUE #07", pages: buildPages("issue7", 24) },
+            "8":    { title: "Dead Drop - Terminal Protocol Part 3", badge: "ISSUE #08", pages: buildPages("issue8", 26) },
+            "9":    { title: "Dead Drop: Zero Collateral", badge: "ISSUE #09", pages: buildPages("issue9", 27) },
+            "10":   { title: "Căutarea // Volumul II", badge: "ISSUE #10", pages: buildPages("issue10", 29) },
+            "11_1": { title: "Dead Drop - The New Order Part 1", badge: "ISSUE #11 [PT 1]", pages: buildPages("issue11_p1", 25) },
+            "11_2": { title: "Dead Drop - The New Order Part 2", badge: "ISSUE #11 [PT 2]", pages: buildPages("issue11_p2", 36) },
+            "12":   { title: "Dead Drop - The Game", badge: "ISSUE #12", pages: buildPages("issue12", 50) },
+            "13":   { title: "Dead Drop - Open Season", badge: "ISSUE #13", pages: buildPages("issue13", 51) }
+        };
+
+</script>
+<script src="/assets/reader.js"></script>
 </body>
 </html>
